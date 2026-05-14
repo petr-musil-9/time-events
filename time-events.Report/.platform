@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "time-events"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1af08268-764a-4834-9aab-26f0f59f8e01"
+  }
+}
