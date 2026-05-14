@@ -11,6 +11,10 @@
         "value": "2.129.905.0 (24.05)"
       },
       {
+        "name": "PBI_QueryOrder",
+        "value": "[\"pm\"]"
+      },
+      {
         "name": "PBI_ProTooling",
         "value": "[\"DevMode\"]"
       }
@@ -26,6 +30,153 @@
           },
           "contentType": "json"
         }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "cs-CZ",
+    "tables": [
+      {
+        "name": "pm",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigace"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "PM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a4382d84-9e2b-4412-aaec-0aa4148736b4",
+            "sourceColumn": "PM",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "username",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3eb7a102-7728-4d41-be60-82fdd59f126d",
+            "sourceColumn": "username",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "oddeleni",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "13ae9bc9-f18e-436c-99b6-46717a0feff5",
+            "sourceColumn": "oddeleni",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "odbor",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8009fe02-63e3-475d-8114-05e691a36dbb",
+            "sourceColumn": "odbor",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sekce",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "59cdd498-ccf0-458e-baeb-ac9f5d9bac84",
+            "sourceColumn": "sekce",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "od",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "0ea07b1d-0df9-4115-ab47-b2a6472f30a9",
+            "sourceColumn": "od",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "do",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "31443f37-577e-4018-825d-ae00f032e5d8",
+            "sourceColumn": "do",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "03048845-e8d6-4f4a-a721-1e5405929273",
+        "partitions": [
+          {
+            "name": "pm",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Zdroj = Excel.Workbook(File.Contents(\"C:\\Users\\petr.musil\\Desktop\\time-events\\time-events\\data-sources\\pm.xlsx\"), null, true),",
+                "    List1_Sheet = Zdroj{[Item=\"List1\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Záhlaví se zvýšenou úrovní\" = Table.PromoteHeaders(List1_Sheet, [PromoteAllScalars=true]),",
+                "    #\"Změněný typ\" = Table.TransformColumnTypes(#\"Záhlaví se zvýšenou úrovní\",{{\"PM\", type text}, {\"username\", type text}, {\"oddeleni\", Int64.Type}, {\"odbor\", type text}, {\"sekce\", type text}, {\"od\", type date}, {\"do\", type date}}),",
+                "    #\"Text malými písmeny\" = Table.TransformColumns(#\"Změněný typ\",{{\"odbor\", Text.Lower, type text}, {\"username\", Text.Lower, type text}, {\"sekce\", Text.Lower, type text}, {\"PM\", Text.Lower, type text}}),",
+                "    #\"Oříznutý text\" = Table.TransformColumns(#\"Text malými písmeny\",{{\"odbor\", Text.Trim, type text}, {\"username\", Text.Trim, type text}, {\"sekce\", Text.Trim, type text}, {\"PM\", Text.Trim, type text}}),",
+                "    #\"Vyčištěný text\" = Table.TransformColumns(#\"Oříznutý text\",{{\"odbor\", Text.Clean, type text}, {\"username\", Text.Clean, type text}, {\"sekce\", Text.Clean, type text}, {\"PM\", Text.Clean, type text}})",
+                "in",
+                "    #\"Vyčištěný text\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }

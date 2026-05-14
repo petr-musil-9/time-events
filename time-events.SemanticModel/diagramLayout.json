@@ -7,7 +7,21 @@
         "x": 0,
         "y": 0
       },
-      "nodes": [],
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "pm",
+          "nodeLineageTag": "03048845-e8d6-4f4a-a721-1e5405929273",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
       "name": "Všechny tabulky",
       "zoomValue": 100,
       "pinKeyFieldsToTop": false,
