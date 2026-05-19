@@ -156,6 +156,20 @@
           }
         ],
         "lineageTag": "03048845-e8d6-4f4a-a721-1e5405929273",
+        "measures": [
+          {
+            "name": "number_of_distinct_pms",
+            "expression": "DISTINCTCOUNT(pm[username])",
+            "formatString": "0",
+            "lineageTag": "09c9e340-5eee-482d-95d6-766e8c934e5c"
+          },
+          {
+            "name": "number_of_rows",
+            "expression": "COUNT(pm[username])",
+            "formatString": "0",
+            "lineageTag": "5218e41b-c890-4cdf-9c42-85217e7f6160"
+          }
+        ],
         "partitions": [
           {
             "name": "pm",
@@ -169,9 +183,10 @@
                 "    #\"Změněný typ\" = Table.TransformColumnTypes(#\"Záhlaví se zvýšenou úrovní\",{{\"PM\", type text}, {\"username\", type text}, {\"oddeleni\", Int64.Type}, {\"odbor\", type text}, {\"sekce\", type text}, {\"od\", type date}, {\"do\", type date}}),",
                 "    #\"Text malými písmeny\" = Table.TransformColumns(#\"Změněný typ\",{{\"odbor\", Text.Lower, type text}, {\"username\", Text.Lower, type text}, {\"sekce\", Text.Lower, type text}, {\"PM\", Text.Lower, type text}}),",
                 "    #\"Oříznutý text\" = Table.TransformColumns(#\"Text malými písmeny\",{{\"odbor\", Text.Trim, type text}, {\"username\", Text.Trim, type text}, {\"sekce\", Text.Trim, type text}, {\"PM\", Text.Trim, type text}}),",
-                "    #\"Vyčištěný text\" = Table.TransformColumns(#\"Oříznutý text\",{{\"odbor\", Text.Clean, type text}, {\"username\", Text.Clean, type text}, {\"sekce\", Text.Clean, type text}, {\"PM\", Text.Clean, type text}})",
+                "    #\"Vyčištěný text\" = Table.TransformColumns(#\"Oříznutý text\",{{\"odbor\", Text.Clean, type text}, {\"username\", Text.Clean, type text}, {\"sekce\", Text.Clean, type text}, {\"PM\", Text.Clean, type text}}),",
+                "    #\"Filtrované řádky\" = Table.SelectRows(#\"Vyčištěný text\", each ([sekce] = \"i\"))",
                 "in",
-                "    #\"Vyčištěný text\""
+                "    #\"Filtrované řádky\""
               ],
               "type": "m"
             }
