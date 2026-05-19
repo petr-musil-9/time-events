@@ -25,7 +25,26 @@
       "filters": "[]",
       "height": 720.00,
       "name": "aa5a5e8d0a031b9e5207",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"670e44c305ce45e47bb5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":594.8466257668712,\"y\":24.212678936605318,\"z\":1,\"width\":630.1840490797546,\"height\":280.08179959100204,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"pm.PM\"},{\"queryRef\":\"pm.sekce\"},{\"queryRef\":\"pm.username\"},{\"queryRef\":\"Sum(pm.oddeleni)\"},{\"queryRef\":\"pm.odbor\"},{\"queryRef\":\"pm.od\"},{\"queryRef\":\"pm.do\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"pm\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"PM\"},\"Name\":\"pm.PM\",\"NativeReferenceName\":\"PM\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"sekce\"},\"Name\":\"pm.sekce\",\"NativeReferenceName\":\"sekce\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"username\"},\"Name\":\"pm.username\",\"NativeReferenceName\":\"username\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"oddeleni\"}},\"Function\":0},\"Name\":\"Sum(pm.oddeleni)\",\"NativeReferenceName\":\"Součet hodnot: oddeleni\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"odbor\"},\"Name\":\"pm.odbor\",\"NativeReferenceName\":\"odbor\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"od\"},\"Name\":\"pm.od\",\"NativeReferenceName\":\"od\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"do\"},\"Name\":\"pm.do\",\"NativeReferenceName\":\"do\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 280.08,
+          "width": 630.18,
+          "x": 594.85,
+          "y": 24.21,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"786d56e17bf39ecdd31a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":147.23926380368098,\"y\":34.02862985685071,\"z\":0,\"width\":391.3292433537832,\"height\":130.22494887525562,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"pm.number_of_pms\"},{\"queryRef\":\"pm.number_of_rows\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"pm\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"number_of_distinct_pms\"},\"Name\":\"pm.number_of_pms\",\"NativeReferenceName\":\"number_of_distinct_pms\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"number_of_rows\"},\"Name\":\"pm.number_of_rows\",\"NativeReferenceName\":\"number_of_rows\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"220.40287002399083D\"}}}},\"selector\":{\"metadata\":\"pm.number_of_pms\"}}]}}}",
+          "filters": "[]",
+          "height": 130.22,
+          "width": 391.33,
+          "x": 147.24,
+          "y": 34.03,
+          "z": 0.00
+        }
+      ],
       "width": 1280.00
     }
   ]

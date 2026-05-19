@@ -156,6 +156,20 @@
           }
         ],
         "lineageTag": "03048845-e8d6-4f4a-a721-1e5405929273",
+        "measures": [
+          {
+            "name": "number_of_distinct_pms",
+            "expression": "DISTINCTCOUNT(pm[username])",
+            "formatString": "0",
+            "lineageTag": "09c9e340-5eee-482d-95d6-766e8c934e5c"
+          },
+          {
+            "name": "number_of_rows",
+            "expression": "COUNT(pm[username])",
+            "formatString": "0",
+            "lineageTag": "5218e41b-c890-4cdf-9c42-85217e7f6160"
+          }
+        ],
         "partitions": [
           {
             "name": "pm",
